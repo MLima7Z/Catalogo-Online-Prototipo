@@ -1,0 +1,235 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: a;
+  src: url("/Prima running /fontes /Rubik-VariableFont_wght.ttf");
+}
+
+html {
+  background-color: black;
+}
+
+body {
+  background-color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+header {
+  padding: 0.8rem 1.4rem 0.4rem 1.4rem;
+  background-image: linear-gradient(to right, #FFFFFF, #E6E6E6);
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  gap: 15px;
+  box-shadow: 0px 4px 15px #0000004A;
+}
+
+header > h2 {
+  text-align: center;
+  font-size: 1.6rem;
+  font-family: a;
+  margin-bottom: -0.6rem;
+}
+
+nav {
+  display: flex;
+}
+
+nav > a > img {
+  width: 35px;
+  margin: 0 0.2rem;
+  height: auto;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  flex-flow: column nowrap;
+  background-image: url('/Prima running /imagens/file_000000002f2c71f5bf73e045cf28f46b.png');
+  background-size: cover;
+  padding: 2.4rem 1.8rem 1.8rem 1.8rem;
+  height: 100vh;
+  color: white;
+}
+
+.hero > h2 {
+  margin-bottom: 0.8rem;
+  font-family: a;
+}
+
+.hero > h1 {
+  line-height: 5.5rem;
+  font-size: 5rem;
+  text-align: center;
+  margin-bottom: 2.4rem;
+  font-family: a;
+}
+
+.catalogo {
+  background-image: linear-gradient(to right, #E6E6E6, #BFBFBF); 
+  padding: 2.4rem 1.8rem 1.8rem 1.8rem;
+  display: flex;
+  align-items: stretch;
+  flex-flow: column nowrap;
+  text-align: center;
+}
+
+.catalogo > h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  font-family: a;
+}
+
+.categorias {
+  display: flex;
+  flex-flow: row nowrap;
+  overflow-x: auto;
+  justify-content: center;
+  gap: 10px;
+  padding: 0.4rem;
+  margin-bottom: 1.5rem;
+}
+
+.categorias > button {
+  background-color: transparent;
+  border: none;
+  border-left: 3px solid #272835;
+  border-right: 3px solid #272835;
+  font-size: 1.1rem;
+  padding: 0.6rem 1.2rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease; 
+}
+
+.categorias > button.active { 
+  color: white;
+  transform: translateY(-5px); 
+  border-left: 4px solid #272835;
+  border-right: 4px solid #272835;
+}
+
+.linha-secao {
+  margin-bottom: 2.5rem;
+  text-align: left;
+}
+
+.titulo-linha {
+  font-size: 1.8rem;
+  margin: 1.5rem 0 0.8rem;
+  font-family: a;
+  color: #272835;
+  border-left: 5px solid #272835;
+  padding-left: 10px;
+}
+
+.cards {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 1rem 0;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+
+.cards::-webkit-scrollbar {
+  height: 6px;
+}
+
+.cards::-webkit-scrollbar-thumb {
+  background: #272835;
+  border-radius: 10px;
+}
+
+.card {
+  background: #F3F3F3;
+  border-radius: 12px;
+  padding: 1.5rem;
+  border-top: 4px solid #2A2C44;
+  flex-shrink: 0;
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  scroll-snap-align: start;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  animation: enterCard 0.4s ease both;
+}
+
+.card:hover { 
+  transform: translateY(-8px); 
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2); 
+}
+
+.card > img {
+  width: 100%;
+  height: 220px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+.card .nome-produto {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  height: 42px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card .descricao-produto {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0.8rem;
+}
+
+.card .tamanhos-produto {
+  font-size: 0.85rem;
+  color: #888;
+  margin-bottom: 0.8rem;
+}
+
+.card .preco-produto {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #2A2C44;
+  margin-bottom: 1rem;
+}
+
+.btn-whatsapp {
+  display: block;
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+  background-color: #25D366;
+  border: 2px solid transparent;
+  transition: background 0.2s;
+}
+
+.btn-whatsapp:hover {
+  background-color: #1ebd59;
+}
+
+@keyframes enterCard {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CASA DO CORREDOR — Catálogo</title>
+  <link rel="stylesheet" href="estilos/stylegpt.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+  <header>
+    <h2>CASA DO CORREDOR</h2>
+    <nav>
+      <a href="#"><img src="imagens/whatsapp.png" alt="WhatsApp" /></a>
+      <a href="#"><img src="imagens/instagram.png" alt="Instagram" /></a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h2>CASA DO CORREDOR</h2>
+      <h1>Escolha Seu Próximo <br /> Tênis Sem Dificuldades</h1>
+    </section>
+  
+    <section class="catalogo">
+      <h2>Catálogo</h2>
+
+      <div class="categorias">
+        <button class="active" data-categoria="destaques">Destaques</button>
+        <button data-categoria="iniciante">Iniciante</button>
+        <button data-categoria="avancado">Avançado</button>
+      </div>
+
+      <div id="render-area"></div>
+    </section>
+  </main>
+  
+  <script src="bdd.js"></script>
+  <script src="mt.js"></script>
+</body>
+</html>

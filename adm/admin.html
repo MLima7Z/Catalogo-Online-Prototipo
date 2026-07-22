@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PAINEL LOJISTA — CASA DO CORREDOR</title>
+  
+  <link rel="stylesheet" href="../estilos/stylegpt.css">
+  <link rel="stylesheet" href="admin.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+  <!-- 1. TELA DE LOGIN -->
+  <div id="area-login">
+    <div class="login-card">
+      <h2>Acesso Lojista</h2>
+      <form id="form-login">
+        <div class="form-group">
+          <label for="login-email">E-mail</label>
+          <input type="email" id="login-email" required placeholder="admin@casadocorredor.com" />
+        </div>
+        <div class="form-group">
+          <label for="login-senha">Senha</label>
+          <input type="password" id="login-senha" required placeholder="••••••••" />
+        </div>
+        <button type="submit" id="btn-entrar" class="btn-salvar">Entrar no Painel</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 2. PAINEL ADM (Usa a classe .escondido por padrão) -->
+  <div id="painel-admin" class="escondido">
+    <div class="topo-acoes-fixo">
+      <button id="btn-novo-produto" onclick="abrirModal()">+ Adicionar Produto</button>
+      <button onclick="fazerLogout()" class="btn-logout">Sair</button>
+    </div>
+
+    <header>
+      <h2>CASA DO CORREDOR — PAINEL ADM</h2>
+    </header>
+
+    <main>
+      <section class="catalogo">
+        <h2>Gerenciar Catálogo</h2>
+
+        <div class="categorias">
+          <button class="active" data-categoria="destaques">Destaques</button>
+          <button data-categoria="iniciante">Iniciante</button>
+          <button data-categoria="avancado">Avançado</button>
+        </div>
+
+        <div id="render-area"></div>
+      </section>
+    </main>
+
+    <!-- Modal Flutuante -->
+    <div id="modal-produto" class="modal-overlay">
+      <div class="modal-content">
+        <span class="modal-fechar" onclick="fecharModal()">&times;</span>
+        <h3 id="modal-titulo">Cadastrar Produto</h3>
+        
+        <form id="form-produto-modal">
+          <input type="hidden" id="produto-id" />
+          
+          <div class="form-group">
+            <label for="nome">Nome do Tênis</label>
+            <input type="text" id="nome" required />
+          </div>
+
+          <div class="row">
+            <div class="form-group">
+              <label for="preco">Preço (R$)</label>
+              <input type="text" id="preco" placeholder="299,90" required />
+            </div>
+            <div class="form-group">
+              <label for="linha">Linha/Modelo</label>
+              <input type="text" id="linha" placeholder="Revolution" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="whatsapp">WhatsApp (DDD + Número)</label>
+            <input type="text" id="whatsapp" value="5511999999999" required />
+          </div>
+
+          <div class="form-group">
+            <label for="categoria">Categorias (separadas por vírgula)</label>
+            <input type="text" id="categoria" placeholder="destaques, iniciante" value="destaques" required />
+          </div>
+
+          <div class="row">
+            <div class="form-group">
+              <label for="tamanhos">Grade de Tamanhos</label>
+              <input type="text" id="tamanhos" placeholder="38 a 43" required />
+            </div>
+            <div class="form-group">
+              <label for="tamanhos_esgotados">Esgotados (por vírgula)</label>
+              <input type="text" id="tamanhos_esgotados" placeholder="39, 41" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="imagem">Link da Imagem (URL)</label>
+            <input type="url" id="imagem" placeholder="https://..." required />
+          </div>
+
+          <div class="form-group">
+            <label for="descricao">Descrição Breve</label>
+            <textarea id="descricao" rows="2"></textarea>
+          </div>
+
+          <button type="submit" id="btn-salvar-modal" class="btn-salvar">Salvar Alterações</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="../bdd.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
