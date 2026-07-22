@@ -6,9 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>PAINEL LOJISTA — CASA DO CORREDOR</title>
   
+  <!-- CSS -->
   <link rel="stylesheet" href="../estilos/stylegpt.css">
   <link rel="stylesheet" href="admin.css">
+
+  <!-- Dependência Supabase (CDN) -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  
+  <!-- Scripts de Dados e Lógica (Carregados na ordem correta) -->
+  <script src="../bdd.js" defer></script>
+  <script src="auth.js" defer></script>
+  <script src="crud.js" defer></script>
 </head>
 <body>
 
@@ -30,11 +38,11 @@
     </div>
   </div>
 
-  <!-- 2. PAINEL ADM (Usa a classe .escondido por padrão) -->
+  <!-- 2. PAINEL ADM (Classe .escondido controla exibição) -->
   <div id="painel-admin" class="escondido">
     <div class="topo-acoes-fixo">
-      <button id="btn-novo-produto" onclick="abrirModal()">+ Adicionar Produto</button>
-      <button onclick="fazerLogout()" class="btn-logout">Sair</button>
+      <button id="btn-novo-produto">+ Adicionar Produto</button>
+      <button id="btn-logout" class="btn-logout">Sair</button>
     </div>
 
     <header>
@@ -56,9 +64,9 @@
     </main>
 
     <!-- Modal Flutuante -->
-    <div id="modal-produto" class="modal-overlay">
+    <div id="modal-produto" class="modal-overlay escondido">
       <div class="modal-content">
-        <span class="modal-fechar" onclick="fecharModal()">&times;</span>
+        <span id="btn-fechar-modal" class="modal-fechar">&times;</span>
         <h3 id="modal-titulo">Cadastrar Produto</h3>
         
         <form id="form-produto-modal">
@@ -117,7 +125,5 @@
     </div>
   </div>
 
-  <script src="../bdd.js"></script>
-  <script src="admin.js"></script>
 </body>
 </html>

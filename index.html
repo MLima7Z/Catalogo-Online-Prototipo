@@ -3,40 +3,54 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CASA DO CORREDOR — Catálogo</title>
+  
+  <!-- CSS da Vitrine -->
   <link rel="stylesheet" href="estilos/stylegpt.css">
+  
+  <!-- SDK do Supabase -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
 
+  <!-- Cabeçalho -->
   <header>
     <h2>CASA DO CORREDOR</h2>
     <nav>
-      <a href="#"><img src="imagens/whatsapp.png" alt="WhatsApp" /></a>
-      <a href="#"><img src="imagens/instagram.png" alt="Instagram" /></a>
+      <a href="https://wa.me/5513997458616" target="_blank" aria-label="WhatsApp">
+        <img src="imagens/whatsapp.png" alt="WhatsApp" onerror="this.style.display='none'"/>
+      </a>
+      <a href="#" target="_blank" aria-label="Instagram">
+        <img src="imagens/instagram.png" alt="Instagram" onerror="this.style.display='none'"/>
+      </a>
     </nav>
   </header>
 
+  <!-- Banner Principal (Hero) -->
   <main>
     <section class="hero">
       <h2>CASA DO CORREDOR</h2>
       <h1>Escolha Seu Próximo <br /> Tênis Sem Dificuldades</h1>
     </section>
   
+    <!-- Seção do Catálogo -->
     <section class="catalogo">
       <h2>Catálogo</h2>
 
+      <!-- Filtro de Categorias -->
       <div class="categorias">
         <button class="active" data-categoria="destaques">Destaques</button>
         <button data-categoria="iniciante">Iniciante</button>
         <button data-categoria="avancado">Avançado</button>
       </div>
 
+      <!-- Área Dinâmica: Injeção dos Cards via mt.js -->
       <div id="render-area"></div>
     </section>
   </main>
   
+  <!-- Scripts de Conexão e Lógica -->
   <script src="bdd.js"></script>
   <script src="mt.js"></script>
 </body>
